@@ -1,6 +1,6 @@
 import React from 'react';
 import { PERSONAL_DATA } from '../data/personalData';
-import { ShieldCheck, MapPin, Download, ArrowUpRight, Award, Building2 } from 'lucide-react';
+import { ShieldCheck, MapPin, Download, ArrowUpRight, Award, Building2, FileText, MessageSquare } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export default function HeroSection() {
@@ -14,9 +14,9 @@ export default function HeroSection() {
   };
 
   return (
-    <section style={{ paddingTop: '8.5rem', paddingBottom: '4rem' }}>
+    <section id="about" style={{ paddingTop: '8.5rem', paddingBottom: '4rem' }}>
       <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem', alignItems: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '3.5rem', alignItems: 'center' }}>
           
           {/* Left Column: Text & Profile Summary */}
           <div>
@@ -25,12 +25,12 @@ export default function HeroSection() {
               <span>Enterprise Software Engineer & Assistant Manager</span>
             </div>
 
-            <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', fontWeight: 800, lineHeight: 1.12, letterSpacing: '-0.025em', marginBottom: '1.5rem', color: '#fff' }}>
+            <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', fontWeight: 800, lineHeight: 1.12, letterSpacing: '-0.025em', marginBottom: '1.5rem', color: 'var(--text-main)' }}>
               Architecting <span style={{ background: 'linear-gradient(135deg, #f59e0b 0%, #fbbf24 60%, #38bdf8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Mission-Critical</span> Banking & Digital Ecosystems.
             </h1>
 
             <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '2rem' }}>
-              Hello, I'm <strong style={{ color: '#fff' }}>{PERSONAL_DATA.fullName}</strong>. Assistant Manager of IT Wholesale Banking Development at <strong style={{ color: '#fbbf24' }}>PT Bank Mandiri (Persero) Tbk</strong>, and <span style={{ color: '#38bdf8' }}>Cum Laude</span> Software Engineering Alumnus from <strong style={{ color: '#fff' }}>Institut Teknologi Del</strong>.
+              Hello, I'm <strong style={{ color: 'var(--text-main)' }}>{PERSONAL_DATA.fullName}</strong>. Assistant Manager of IT Wholesale Banking Development at <strong style={{ color: 'var(--gold-light)' }}>PT Bank Mandiri (Persero) Tbk</strong>, and <span style={{ color: 'var(--cyan-accent)' }}>Cum Laude</span> Software Engineering Alumnus from <strong style={{ color: 'var(--text-main)' }}>Institut Teknologi Del</strong>.
             </p>
 
             {/* Quick Badges / Meta */}
@@ -50,23 +50,29 @@ export default function HeroSection() {
             </div>
 
             {/* Action Buttons */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.85rem', alignItems: 'center' }}>
               <a href="#projects" className="btn btn-primary" onClick={shootConfetti}>
                 <span>Explore Featured Works</span>
                 <ArrowUpRight size={18} />
               </a>
-              <a href="#experience" className="btn btn-secondary">
-                <span>View Career Trajectory</span>
-              </a>
               <a
-                href={PERSONAL_DATA.linkedin}
+                href={PERSONAL_DATA.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-secondary"
-                style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem' }}
               >
-                <span>in/gahasapurba</span>
-                <ArrowUpRight size={14} />
+                <FileText size={17} />
+                <span>Download Resume (PDF)</span>
+              </a>
+              <a
+                href={PERSONAL_DATA.whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-secondary"
+                style={{ color: '#22c55e' }}
+              >
+                <MessageSquare size={17} />
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>
@@ -77,14 +83,14 @@ export default function HeroSection() {
               className="glass-panel"
               style={{
                 padding: '2rem',
-                border: '1px solid rgba(245, 158, 11, 0.25)',
-                background: 'linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(8, 10, 15, 0.95) 100%)',
+                border: '1px solid var(--border-gold)',
+                background: 'var(--bg-card)',
                 position: 'relative',
                 overflow: 'hidden'
               }}
             >
               {/* Corner Ambient Glow */}
-              <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '180px', height: '180px', background: 'radial-gradient(circle, rgba(245, 158, 11, 0.3) 0%, transparent 70%)', filter: 'blur(30px)' }} />
+              <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '180px', height: '180px', background: 'radial-gradient(circle, var(--gold-glow) 0%, transparent 70%)', filter: 'blur(30px)' }} />
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '1.75rem' }}>
                 <div style={{ position: 'relative' }}>
@@ -96,8 +102,8 @@ export default function HeroSection() {
                       height: '90px',
                       borderRadius: '20px',
                       objectFit: 'cover',
-                      border: '2px solid rgba(245, 158, 11, 0.4)',
-                      boxShadow: '0 8px 24px rgba(0,0,0,0.5)'
+                      border: '2px solid var(--border-gold)',
+                      boxShadow: '0 8px 24px rgba(0,0,0,0.25)'
                     }}
                   />
                   <div
@@ -109,12 +115,12 @@ export default function HeroSection() {
                       width: '16px',
                       height: '16px',
                       borderRadius: '50%',
-                      border: '3px solid #080a0f'
+                      border: '3px solid var(--bg-dark)'
                     }}
                   />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#fff', marginBottom: '0.25rem' }}>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.25rem' }}>
                     {PERSONAL_DATA.shortName}
                   </h3>
                   <div style={{ fontSize: '0.85rem', color: 'var(--gold-light)', fontFamily: 'var(--font-mono)' }}>
@@ -133,9 +139,9 @@ export default function HeroSection() {
                   gridTemplateColumns: 'repeat(2, 1fr)',
                   gap: '1rem',
                   padding: '1.25rem',
-                  background: 'rgba(0, 0, 0, 0.35)',
+                  background: 'var(--panel-inner-bg)',
                   borderRadius: '12px',
-                  border: '1px solid rgba(255, 255, 255, 0.05)',
+                  border: '1px solid var(--border-subtle)',
                   marginBottom: '1.5rem'
                 }}
               >
@@ -144,7 +150,7 @@ export default function HeroSection() {
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                       {st.label}
                     </div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', margin: '0.15rem 0' }}>
+                    <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-main)', margin: '0.15rem 0' }}>
                       {st.value}
                     </div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--gold-light)', fontFamily: 'var(--font-mono)' }}>
