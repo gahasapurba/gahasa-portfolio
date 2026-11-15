@@ -111,3 +111,4 @@ gahasa-portfolio/
 ---
 
 &copy; 2026 Gahasa Timothius B.P. Purba. All rights reserved.
+
